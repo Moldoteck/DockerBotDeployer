@@ -1,0 +1,37 @@
+version: "3"
+services:
+  beautifierbot:
+    container_name: beautifierbot
+    image: beautifierbot
+    restart: always
+    build: ./Beautifier
+    links:
+      - mongo
+  toxmodbot:
+    container_name: toxmodbot
+    image: toxmodbot
+    restart: always
+    build: ./ToxMod
+    links:
+      - mongo
+  voicebot:
+    container_name: voicebot
+    image: voicebot
+    restart: always
+    build: ./VoiceSpeaker
+    links:
+      - mongo
+  alexbot:
+    container_name: alexbot
+    image: alexbot
+    restart: always
+    build: ./AlexBot
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27018:27017'
