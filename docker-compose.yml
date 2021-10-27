@@ -7,6 +7,13 @@ services:
     build: ./Beautifier
     links:
       - mongo
+  groupmentionsbot:
+    container_name: groupmentionsbot
+    image: groupmentionsbot
+    restart: always
+    build: ./GroupMentionsBot
+    links:
+      - mongo
   toxmodbot:
     container_name: toxmodbot
     image: toxmodbot
@@ -14,18 +21,18 @@ services:
     build: ./ToxMod
     links:
       - mongo
-  voicebot:
-    container_name: voicebot
-    image: voicebot
+  wordenhancerbot:
+    container_name: wordenhancerbot
+    image: wordenhancerbot
     restart: always
-    build: ./VoiceSpeaker
+    build: ./WordEnhancerBot
     links:
       - mongo
-  alexbot:
-    container_name: alexbot
-    image: alexbot
+  magiceraser:
+    container_name: magiceraser
+    image: magiceraser
     restart: always
-    build: ./AlexBot
+    build: ./MagicEraser
     links:
       - mongo
   mongo:
@@ -35,3 +42,17 @@ services:
       - ./data:/data/db
     ports:
       - '27018:27017'
+  # voicebot:
+  #   container_name: voicebot
+  #   image: voicebot
+  #   restart: always
+  #   build: ./VoiceSpeaker
+  #   links:
+  #     - mongo
+  # alexbot:
+  #   container_name: alexbot
+  #   image: alexbot
+  #   restart: always
+  #   build: ./AlexBot
+  #   links:
+  #     - mongo

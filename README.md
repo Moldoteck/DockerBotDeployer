@@ -10,7 +10,9 @@ Run `docker-compose up -d`
 Or
 Run `docker-compose up container_name -d`
 
-Use same strategy for restarting/stopping containers.
+Use same strategy for restarting/stopping containers, for example:
+Run `docker-compose down`
+
 
 # To create backup for mongodb, run:
 `docker-compose exec -T mongo sh -c 'mongodump --archive' > db.dump`
